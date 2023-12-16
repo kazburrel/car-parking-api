@@ -9,9 +9,12 @@ class ParkingObserver
     /**
      * Handle the Parking "created" event.
      */
-    public function created(Parking $parking): void
+    public function creating(Parking $parking)
     {
-        //
+        if (auth()->check()) {
+            $parking->user_id = auth()->id();
+        }
+        $parking->start_time = now();
     }
 
     /**
