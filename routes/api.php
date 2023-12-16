@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\V1\Auth\PasswordUpdateController;
 use App\Http\Controllers\Api\V1\Auth\ProfileController;
 use App\Http\Controllers\Api\V1\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\VehicleController;
+use App\Http\Controllers\Api\V1\ZoneController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('auth/register', RegisterController::class);
 Route::post('auth/login', LoginController::class);
 Route::post('auth/logout', LogoutController::class);
+Route::get('zones', [ZoneController::class, 'index']);
 
 
 Route::middleware('auth:sanctum')->group(function () {
